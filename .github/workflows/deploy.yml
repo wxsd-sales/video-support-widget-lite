@@ -35,3 +35,9 @@ jobs:
           echo "Injecting secrets into JS file"
           # Replace a placeholder in your JavaScript file with the actual secret
           sed -i 's/GUEST_ACCESS_TOKEN/${{ secrets.GUEST_ACCESS_TOKEN }}/g' ./index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
