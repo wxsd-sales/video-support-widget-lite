@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/gh/WXSD-Sales/embeddable-meetings-widget/docs/webex-widgets.css" />
+    <script src="https://cdn.jsdelivr.net/gh/WXSD-Sales/embeddable-meetings-widget/docs/bundle.js"></script>
+    <title>Video Support Widget (Lite)</title>
+</head>
+<body>
+
+
+    <div id="embeddable-meetings-widget"></div>
+        <script>
+            
+            const token = "";
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const sipAddress = urlParams.get("sipAddress");
+            webexMeetingsWidget({accessToken : token,
+                meetingDestination : sipAddress,
+                theme : "light",
+                draggable : true,
+                width : "800px",
+                height : "500px",
+                layout : "Grid",
+                inMeetingControls : ['mute-audio','leave-meeting'],
+                interstitialControls : ['join-meeting']});
+        </script>
+</body>
+</html>
